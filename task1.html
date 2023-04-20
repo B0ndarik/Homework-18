@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1</title>
+  </head>
+  <body>
+    <h2>Task 1</h2>
+    <p>Розробити калькулятор</p>
+
+    <div>
+      <label>
+        First number
+        <input type="number" id="num1" value="0" />
+      </label>
+    </div>
+    <div>
+      <label>
+        Second number
+        <input type="number" id="num2" value="0" />
+      </label>
+    </div>
+    <div>
+      <button>Додати</button>
+      <button>Відняти</button>
+      <button>Помножити</button>
+      <button>Поділити</button>
+    </div>
+    <div>
+      <label>
+        Результат
+        <input type="number" id="result" value="0" />
+      </label>
+
+      <script>
+        // let result = document.getElementById("result");
+
+        function sum() {
+          let num1 = parseFloat(document.getElementById("num1").value);
+          let num2 = parseFloat(document.getElementById("num2").value);
+          document.getElementById("result").value = (num1 + num2).toFixed(1);
+        }
+
+        function subtract() {
+          let num1 = parseFloat(document.getElementById("num1").value);
+          let num2 = parseFloat(document.getElementById("num2").value);
+          document.getElementById("result").value = (num1 - num2).toFixed(1);
+        }
+
+        function product() {
+          let num1 = parseFloat(document.getElementById("num1").value);
+          let num2 = parseFloat(document.getElementById("num2").value);
+          document.getElementById("result").value = (num1 * num2).toFixed(1);
+        }
+
+        function division() {
+          let num1 = parseFloat(document.getElementById("num1").value);
+          let num2 = parseFloat(document.getElementById("num2").value);
+          document.getElementById("result").value = (num1 / num2).toFixed(1);
+        }
+
+        const buttons = document.querySelectorAll("button");
+        buttons[0].onclick = sum;
+          buttons[1].onclick = subtract;
+          buttons[2].onclick = product;
+          buttons[3].onclick = division;
+      </script>
+    </div>
+  </body>
+</html>

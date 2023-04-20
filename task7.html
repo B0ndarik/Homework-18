@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h2>Task 7</h2>
+        <p>
+          Подорож складається з 3 етапів. На кожному етапі користувач може
+          вибрати один з видів транспорту (авто, автобус, літак - випадаючий
+          список), харчування (сніданок, обід, вечеря – checkbоx) та одного з
+          3-х гідів(використати - radio buttons). Ціни визначте самі.
+          Підрахувати загальну вартість.
+        </p>
+
+		  <div class="stage1">
+      <h2 class="title">Етап 1</h2>
+      <div>
+         <label>Транспорт
+         <select class="select" id="transport">
+            <option value="500" selected>Авто 500грн</option>
+            <option value="250">Автобус 250грн</option>
+            <option value="1000">Літак 1000грн</option>
+         </select>
+			</label>
+      </div>
+      <div>
+         Харчування
+         <div>
+            <label>
+               <input type="checkbox" value="70">
+               Сніданок 70грн
+            </label>
+         </div>
+         <div>
+            <label>
+               <input type="checkbox" value="100">
+               Обід 100грн
+            </label>
+         </div>
+         <div>
+            <label>
+               <input type="checkbox" value="70">
+               Вечеря 70грн
+            </label>
+         </div>
+      </div>
+      <div>
+         Гід
+         
+            <label>
+               <input type="radio" name="stage1" value="100">
+               Перший гід 100грн
+            </label>
+         
+            <label>
+               <input type="radio" name="stage1" value="200">
+               Другий гід 200грн
+            </label>
+         
+            <label>
+               <input type="radio" name="stage1" value="400">
+               Третій гід 400грн
+            </label>
+         </div>
+
+			<div class="stage2">
+      <h2 class="title">Етап 2</h2>
+      <div>
+         <label>Транспорт
+         <select class="select" id="transport">
+            <option value="500" selected>Авто 500грн</option>
+            <option value="250">Автобус 250грн</option>
+            <option value="1000">Літак 1000грн</option>
+         </select>
+			</label>
+      </div>
+      <div>
+         Харчування
+         <div>
+            <label>
+               <input type="checkbox" value="70">
+               Сніданок 70грн
+            </label>
+         </div>
+         <div>
+            <label>
+               <input type="checkbox" value="100">
+               Обід 100грн
+            </label>
+         </div>
+         <div>
+            <label>
+               <input type="checkbox" value="70">
+               Вечеря 70грн
+            </label>
+         </div>
+      </div>
+      <div>
+         Гід
+         
+            <label>
+               <input type="radio" name="stage2" value="100">
+               Перший гід 100грн
+            </label>
+         
+            <label>
+               <input type="radio" name="stage2" value="200">
+               Другий гід 200грн
+            </label>
+         
+            <label>
+               <input type="radio" name="stage2" value="400">
+               Третій гід 400грн
+            </label>
+         </div>
+
+			<div class="stage3">
+      <h2 class="title">Етап 3</h2>
+      <div>
+         <label>Транспорт
+         <select class="select" id="transport">
+            <option value="500" selected>Авто 500грн</option>
+            <option value="250">Автобус 250грн</option>
+            <option value="1000">Літак 1000грн</option>
+         </select>
+			</label>
+      </div>
+      <div>
+         Харчування
+         <div>
+            <label>
+               <input type="checkbox" value="70">
+               Сніданок 70грн
+            </label>
+         </div>
+         <div>
+            <label>
+               <input type="checkbox" value="100">
+               Обід 100грн
+            </label>
+         </div>
+         <div>
+            <label>
+               <input type="checkbox" value="70">
+               Вечеря 70грн
+            </label>
+         </div>
+      </div>
+      <div>
+         Гід
+         
+            <label>
+               <input type="radio" name="stage3" value="100">
+               Перший гід 100грн
+            </label>
+         
+            <label>
+               <input type="radio" name="stage3" value="200">
+               Другий гід 200грн
+            </label>
+         
+            <label>
+               <input type="radio" name="stage3" value="400">
+               Третій гід 400грн
+            </label>
+         </div>
+     
+  
+   <button class="sum">Розрахувати вартість</button>
+   <div>Загальна вартість: <span class="total-price"></span></div>
+   <style>
+		.sum{
+			margin: 20px 0
+		}
+	</style>
+	<script>
+		const button = document.querySelector('.sum')
+		button.onclick = getSum
+
+		function getSum(){
+const transport = document.querySelectorAll('.select')
+const foodAndGuide = document.getElementsByTagName('input')
+const transportSum = [].reduce.call(transport,(prevSum,stage)=>prevSum+parseInt(stage.value),0)
+console.log(transportSum);
+
+const sumFoodAndGuide = [].reduce.call(foodAndGuide,(prevSum,elem)=>elem.checked?prevSum+parseInt(elem.value):prevSum,0)
+console.log(sumFoodAndGuide);
+
+const totalSum = transportSum + sumFoodAndGuide
+const resultField = document.querySelector('.total-price')
+resultField.innerHTML = totalSum
+		}
+	</script>
+</body>
+</body>
+</html>

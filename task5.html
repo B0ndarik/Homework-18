@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Task 5</h2>
+    <p>
+      Відобразити таблицю 3*4 з випадковими числами (її треба динамічно створити
+      і вставити на сторінку)
+    </p>
+    <style>
+      .table {
+        border: 2px solid red;
+      }
+    </style>
+    <script>
+      let randomNum = () => {
+        return Math.floor(Math.random() * 101);
+      };
+
+      const table = document.createElement("table");
+      table.classList.add("table");
+      document.body.append(table);
+      for (let i = 0; i < 3; i++) {
+        const row = document.createElement("tr");
+        table.append(row);
+        for (let j = 0; j < 4; j++) {
+          const cell = document.createElement("td");
+          cell.innerHTML = randomNum();
+			 cell.classList.add('table')
+          row.append(cell);
+        }
+      }
+    </script>
+  </body>
+</html>

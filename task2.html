@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Task 2</h2>
+    <p>Зробити конвертер валют (курси валют – константи у скрипті)</p>
+    <div>
+      <label>
+        Сума в гривнях
+        <input type="number" id="hrn" />
+      </label>
+    </div>
+    <div>
+      <button>Конвертувати</button>
+    </div>
+    <div>
+      <label>
+        Сума в євро
+        <input type="number" id="eu" />
+      </label>
+    </div>
+    <div>
+      <label>
+        Сума в доларах
+        <input type="number" id="dol" />
+      </label>
+    </div>
+    <script>
+      document.querySelector("button").onclick = convert;
+
+      function convert() {
+        let hrivna = parseFloat(document.getElementById("hrn").value);
+        const euExRate = 40;
+        const dolExRate = 39;
+        document.getElementById("eu").value = (hrivna / euExRate).toFixed(2);
+        document.getElementById("dol").value = (hrivna / dolExRate).toFixed(2);
+      }
+    </script>
+  </body>
+</html>

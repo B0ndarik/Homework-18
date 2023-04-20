@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Task 6</h2>
+    <p>
+      Користувач задає кількість оцінок і натискає на кнопку «get table». В
+      результаті формується таблиця з input, куди користувач вводить оцінки.
+      Після цього натискає на кнопку “get sum” і знаходить середнє значення.
+    </p>
+    <label>
+      Number of marks
+      <input type="number" class="marks" value="0" />
+    </label>
+    <button id="table">Get table</button>
+    <div class="table-content"></div>
+    <style>
+      table,
+      tr {
+        border: 2px solid black;
+      }
+    </style>
+
+    <script>
+      const buttonTable = document.getElementById("table");
+      buttonTable.onclick = getTable;
+
+      function getTable() {
+        const marks = parseInt(document.querySelector(".marks").value);
+        const table = document.createElement("table");
+        const div = document.querySelector(".table-content");
+        div.append(table);
+        for (let i = 0; i < marks; i++) {
+          const row = document.createElement("tr");
+          table.append(row);
+          const cell = document.createElement("td");
+          row.append(cell);
+          const input = document.createElement("input");
+          cell.append(input);
+          input.classList.add("input-marks");
+        }
+        const calcButton = document.createElement("button");
+        calcButton.innerText = "Get Sum";
+        calcButton.setAttribute("id", "sum");
+        div.append(calcButton);
+        calcButton.onclick = calcAverage;
+      }
+
+      function calcAverage() {
+        const inpMarks = document.getElementsByClassName("input-marks");
+        const result = document.createElement("input");
+        const div = document.querySelector(".table-content");
+        div.append(result);
+        const sum = [].reduce.call(
+          inpMarks,
+          (prevSum, mark) => prevSum + parseInt(mark.value),
+          0
+        );
+        const resAverage = sum / inpMarks.length;
+        result.value = resAverage.toFixed(2);
+      }
+
+    </script>
+  </body>
+</html>
